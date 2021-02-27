@@ -6,14 +6,14 @@ const request = require('request');
       url: 'https://pen-to-print-handwriting-ocr.p.rapidapi.com/recognize/',
       headers: {
         'content-type': 'multipart/form-data; boundary=---011000010111000001101001',
-        'x-rapidapi-key': '6a456aebe0msh0206aa0a9328ad6p17dfd0jsn43c5eba71f71',
+        "x-rapidapi-key": "915f758cb5mshbb558a904c64455p14aa0ajsnec22ba2f1c80",
         'x-rapidapi-host': 'pen-to-print-handwriting-ocr.p.rapidapi.com',
         useQueryString: true
       },
       formData: {
         srcImg: {
-          value: fs.createReadStream('ans_page1.jpg'),
-          options: {filename: 'ans_page1.jpg', contentType: 'application/octet-stream'}
+          value: fs.createReadStream('page1.jpg'),
+          options: {filename: 'page1.jpg', contentType: 'application/octet-stream'}
         },
         Session: 'string'
       }
@@ -23,7 +23,7 @@ const request = require('request');
         if (error) throw new Error(error);
 
         console.log(body);
-        fs.writeFile('ans_output.txt', body, (err) => {
+        fs.writeFile('output.txt', body, (err) => {
 
         // In case of a error throw err.
         if (err) throw err;
