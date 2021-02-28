@@ -6,6 +6,7 @@ import pandas as pd
 from pdf2image import convert_from_path
 import os
 from sentence_transformers import SentenceTransformer
+from tkinter import messagebox
 import numpy as np
 from PIL import ImageTk
 import tqdm
@@ -58,12 +59,6 @@ def main(file,name):
             print(y)
             return y
 
-    # v = "pages/page0.jpg"
-    # js_command = "node"+"test.js" + " " + v
-    # result = execute_js("test.js")
-
-    # # Store Pdf with convert_from_path function
-    # images = convert_from_path(r'C:\Users\tusha\Downloads\1911050_TUSHAR_COA.pdf')
 
     def teacher_ans(images):
         di = {}
@@ -121,8 +116,8 @@ def main(file,name):
     return input_docs(file,name)
 
 
-
-
+def info():
+    messagebox.showinfo("Show Status", "Successfully checked all the PDFs")
 
 
 def browseFiles():
@@ -150,6 +145,7 @@ def run():
         print(file)
         print(filename+"/"+file)
         main(filename+"/"+file,file)
+    info()
 
 
 class Auto:
