@@ -125,10 +125,6 @@ def main(file,name):
 
 
 
-
-# Function for opening the
-# file explorer window
-
 def browseFiles():
     global filename
     filename = filedialog.askdirectory(initialdir="/",
@@ -155,28 +151,6 @@ def run():
         print(filename+"/"+file)
         main(filename+"/"+file,file)
 
-# button_explore = Button(window,
-#                         text="Directory of targets",
-#                         command=browseFiles)
-# button_explore.place(x=80, y=50)
-#
-# button_explore1= Button(window,
-#                         text="Answer Key path",
-#                         command=browseFilesAnswer)
-# button_explore1.place(x=80, y=90)
-#
-# button_explore2= Button(window,
-#                         text="Directory to store Outputs",
-#                         command=browseFilesOut)
-# button_explore2.place(x=65, y=130)
-#
-# btn = Button(window,
-#                      text="Run",
-#                      command=run)
-#
-# btn.place(x=120, y=170)
-# lbl=Label(window, text="Auto Grading for PDFs", fg='blue', font=("Helvetica", 12))
-# lbl.place(x=60, y=10)
 
 class Auto:
     def __init__(self,root ):
