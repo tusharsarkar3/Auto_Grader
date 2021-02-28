@@ -7,6 +7,7 @@ from pdf2image import convert_from_path
 import os
 from sentence_transformers import SentenceTransformer
 import numpy as np
+from PIL import ImageTk
 import tqdm
 
 
@@ -154,32 +155,64 @@ def run():
         print(filename+"/"+file)
         main(filename+"/"+file,file)
 
-window=Tk()
+# button_explore = Button(window,
+#                         text="Directory of targets",
+#                         command=browseFiles)
+# button_explore.place(x=80, y=50)
+#
+# button_explore1= Button(window,
+#                         text="Answer Key path",
+#                         command=browseFilesAnswer)
+# button_explore1.place(x=80, y=90)
+#
+# button_explore2= Button(window,
+#                         text="Directory to store Outputs",
+#                         command=browseFilesOut)
+# button_explore2.place(x=65, y=130)
+#
+# btn = Button(window,
+#                      text="Run",
+#                      command=run)
+#
+# btn.place(x=120, y=170)
+# lbl=Label(window, text="Auto Grading for PDFs", fg='blue', font=("Helvetica", 12))
+# lbl.place(x=60, y=10)
+
+class Auto:
+    def __init__(self,root ):
+        self.root = root
+        self.root.title('Auto Grader')
+        self.root.geometry("915x600+100+50")
+        self.bg = ImageTk.PhotoImage(file=r'D:\HackerBash\AutoGrader\im3.jpg')
+        self.bg_image = Label(self.root,image = self.bg).place(x=0,y=0,relwidth=1,relheight=1)
+
+        frame = Frame(self.root,bg="white")
+        frame.place(x=50,y=300,height= 250,width = 300)
+
+        title = Label(frame,text="Auto Grader",font=("Impact",35,"bold"),fg= "black",bg="white").place(x=30,y=10)
+        button_explore = Button(frame,
+                                text="Directory of targets",
+                                command=browseFiles)
+        button_explore.place(x=90, y=80)
+
+        button_explore1= Button(frame,
+                                text="Answer Key path",
+                                command=browseFilesAnswer)
+        button_explore1.place(x=97, y=120)
+
+        button_explore2= Button(frame,
+                                text="Directory to store Outputs",
+                                command=browseFilesOut)
+        button_explore2.place(x=75, y=160)
+
+        btn = Button(frame,
+                             text="Run",
+                             command=run)
+
+        btn.place(x=130, y=200)
 
 
-button_explore = Button(window,
-                        text="Directory of targets",
-                        command=browseFiles)
-button_explore.place(x=80, y=50)
+root = Tk()
+obj = Auto(root)
+root.mainloop()
 
-button_explore1= Button(window,
-                        text="Answer Key path",
-                        command=browseFilesAnswer)
-button_explore1.place(x=80, y=90)
-
-button_explore2= Button(window,
-                        text="Directory to store Outputs",
-                        command=browseFilesOut)
-button_explore2.place(x=65, y=130)
-
-btn = Button(window,
-                     text="Run",
-                     command=run)
-
-btn.place(x=120, y=170)
-lbl=Label(window, text="Auto Grading for PDFs", fg='blue', font=("Helvetica", 12))
-lbl.place(x=60, y=10)
-
-window.title('Auto Grader')
-window.geometry("300x200+10+10")
-window.mainloop()
