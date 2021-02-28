@@ -6,7 +6,7 @@ const request = require('request');
       url: 'https://pen-to-print-handwriting-ocr.p.rapidapi.com/recognize/',
       headers: {
         'content-type': 'multipart/form-data; boundary=---011000010111000001101001',
-        "x-rapidapi-key": "915f758cb5mshbb558a904c64455p14aa0ajsnec22ba2f1c80",
+        "x-rapidapi-key": "Your key",
         'x-rapidapi-host': 'pen-to-print-handwriting-ocr.p.rapidapi.com',
         useQueryString: true
       },
